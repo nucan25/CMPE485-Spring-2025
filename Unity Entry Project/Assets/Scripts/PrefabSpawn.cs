@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PrefabSpawn : MonoBehaviour
 {
-    public GameObject prefabToSpawn; // Inspector'dan atanacak Prefab
-    public Transform spawnPoint; // Nesnelerin çıkacağı nokta
+    public GameObject prefabToSpawn; // Prefab to be assigned via Inspector
+    public Transform spawnPoint; // Spawn location for the objects
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // SPACE tuşuna basıldığında
+        if (Input.GetKeyDown(KeyCode.Space)) // When the SPACE key is pressed
         {
-            Instantiate(prefabToSpawn, spawnPoint.position, Quaternion.identity); // Prefab’i oluştur
+            Instantiate(prefabToSpawn, spawnPoint.position, Quaternion.identity); // Instantiate the prefab
         }
     }
 }
-
