@@ -28,15 +28,22 @@ public class PlayerMovement : MonoBehaviour
         movementVector = new Vector3(horizontal, 0, vertical);
         movementVector.Normalize();
 
-        rb.MovePosition(transform.position + movementVector * speed * Time.deltaTime);
+        Vector3 tempMovementVector = Vector3.zero;
+        tempMovementVector += transform.forward * movementVector.z;
+        tempMovementVector += transform.right * movementVector.x;
+
+
+        rb.MovePosition(transform.position + tempMovementVector * speed * Time.deltaTime);
+
+        
 
         if (movementVector != Vector3.zero) // Eğer hareket vektörü sıfırdan farklıysa, karakter hareket ediyor demektir.
         {
-            animatorPlayer.SetBool("Walk", true);
+            animatorPlayer.SetBool("Run", true);
         }
         else
         {
-            animatorPlayer.SetBool("Walk", false);
+            animatorPlayer.SetBool("Run", false);
         }
     }
 }
