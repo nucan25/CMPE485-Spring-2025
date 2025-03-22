@@ -11,10 +11,10 @@ public class MusicVolumeSlider : MonoBehaviour
     {
         slider = GetComponent<Slider>();
 
-        // Varsayılan değeri 1 (maksimum ses)
+        // Set default slider value to 1 (maximum volume)
         slider.value = 1f;
 
-        // Değer değişince AudioManager'a bildir
+        // Add a listener to notify the AudioManager when the value changes
         slider.onValueChanged.AddListener(SetVolume);
     }
 

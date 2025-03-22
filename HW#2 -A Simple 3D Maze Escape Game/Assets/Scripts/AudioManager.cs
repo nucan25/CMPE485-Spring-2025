@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance; // Diğer scriptlerden kolayca erişim için
+    public static AudioManager Instance; 
     [SerializeField] private AudioSource musicSource;
 
     private void Awake()
@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Sahneler arası yok olmasın
+            DontDestroyOnLoad(gameObject); // Prevent from being destroyed between scenes
         }
         else
         {
@@ -24,13 +24,13 @@ public class AudioManager : MonoBehaviour
     {
         if (musicSource != null && !musicSource.isPlaying)
         {
-            musicSource.Play(); // Oyun başladığında müzik başlasın
+            musicSource.Play(); // Start music when the game begins
         }
     }
 
     public void SetMusicVolume(float volume)
     {
-        musicSource.volume = volume; // 0 ile 1 arasında ses ayarlanır
+        musicSource.volume = volume; // Set volume between 0 and 1
     }
 
     public void ToggleMute()
@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            ToggleMute(); // "M" tuşuna basarak sessize al / geri aç
+            ToggleMute(); // Press "M" to mute/unmute the music
         }
     }
 }
