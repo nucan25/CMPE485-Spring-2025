@@ -33,7 +33,7 @@ public class FullPerformanceHUDDisplay : MonoBehaviour
 
             fpsText.text = $"FPS: {avgFPS:F1}";
 
-            if (avgFPS > 50f)
+            if (avgFPS > 60f)
                 fpsText.color = Color.green;
             else if (avgFPS > 30f)
                 fpsText.color = new Color(1f, 0.75f, 0f); // orange-yellow
